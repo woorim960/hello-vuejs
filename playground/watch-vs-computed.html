@@ -9,7 +9,6 @@
 <body>
     <div id="app">
         {{ num }}
-        <button v-on:click="addNum">increase</button>
     </div>
 
     <script src="https://unpkg.com/vue@2"></script>
@@ -25,7 +24,8 @@
                 }
             },
             watch: {
-                num: function(newValue) {
+                num: function(newValue, oldValue) {
+                    // 일반적으로 무거운 로직을 구현한다. ex: fetch()
                     this.fetchUserByNumber(newValue)
                 }
             },
